@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+
+<div class="chat-section">
+    {% for query,response in chats %}
+        <div class="conversation-set">
+            <div class="user-query">
+                {{ query}}
+            </div>
+            <div class="ai-response">
+                {{ response }}
+            </div>       
+        </div>
+    {% endfor %}
+</div>
+<div class="input-section">
+    <form action="" method="post">
+        <input type="text" name="query" id="query" class="long-input" placeholder="Send a Message">
+        <button type="submit" class="round button" id="sendButton" onclick="console.log('clicked')">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <a href="/exit-chat">
+            <button type="submit" class="round button" id="exitButton" onclick="console.log('clicked')">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </a>
+    </form>
+</div>
+{% endblock %}
